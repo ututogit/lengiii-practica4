@@ -1,53 +1,102 @@
-const contenedorHTML = document.getElementById("contenedor");
-
-let productos = [
-    {
-        "id": "MLA819328068",
-        "title": "Motorola G6 Plus 64 Gb Índigo Oscuro 4 Gb Ram",
-        "price": 28599,
-        "condition": "new",
-        "free_shipping": true,
-        "thumbnail": "http://mla-s1-p.mlstatic.com/909111-MLA31239994706_062019-I.jpg"
-    },
-    {
-        "id": "MLA801485554",
-        "title": "Motorola G6 32 Gb Índigo Oscuro 3 Gb Ram",
-        "price": 10999,
-        "condition": "new",
-        "free_shipping": false,
-        "thumbnail": "http://mla-s2-p.mlstatic.com/623562-MLA31003470563_062019-I.jpg"
-    },
-    {
-        "id": "MLA828849306",
-        "title": "Motorola G6 Dual Sim 32 Gb Índigo Oscuro 3 Gb Ram",
-        "price": 12999,
-        "condition": "new",
-        "free_shipping": true,
-        "thumbnail": "http://mla-s1-p.mlstatic.com/708400-MLA31003470610_062019-I.jpg"
-    },
-    {
-        "id": "MLA80174206",
-        "title": "Motorola One 64 Gb Negro 4 Gb Ram",
-        "price": 23318.9,
-        "condition": "new",
-        "free_shipping": true,
-        "thumbnail": "http://mla-s1-p.mlstatic.com/724005-MLA31250987474_062019-I.jpg"
-    }
+const productos = [
+  {
+    id: 1,
+    titulo: "Volkswagen Gol",
+    precio: "$15,000",
+    condicion: "Usado",
+    imagen: "img/vw_gol.jpg"
+  },
+  {
+    id: 2,
+    titulo: "Toyota Hilux",
+    precio: "$17,500",
+    condicion: "Usado",
+    imagen: "img/toyota_hilux.jpg"
+  },
+  {
+    id: 3,
+    titulo: "Chevrolet Corsa",
+    precio: "$25,000",
+    condicion: "Nuevo",
+    imagen: "img/chevrolet_corsa.jpg"
+  },
+  {
+    id: 4,
+    titulo: "Renault Clio",
+    precio: "$27,000",
+    condicion: "Nuevo",
+    imagen: "img/renault_clio.jpg"
+  },
+  {
+    id: 5,
+    titulo: "Fiat Argo",
+    precio: "$13,000",
+    condicion: "Usado",
+    imagen: "img/fiat_argo.jpg"
+  },
+  {
+    id: 6,
+    titulo: "Volkswagen Amarok",
+    precio: "$14,500",
+    condicion: "Usado",
+    imagen: "img/vw_amarok.png"
+  },
+  {
+    id: 7,
+    titulo: "Fiat Cronos",
+    precio: "$35,000",
+    condicion: "Nuevo",
+    imagen: "img/fiat_cronos.png"
+  },
+  {
+    id: 8,
+    titulo: "Toyota Corolla",
+    precio: "$30,000",
+    condicion: "Nuevo",
+    imagen: "img/toyota_corolla.png"
+  },
+  {
+    id: 9,
+    titulo: "Audi A4",
+    precio: "$32,000",
+    condicion: "Nuevo",
+    imagen: "img/audi_a4.jpg"
+  },
+  {
+    id: 10,
+    titulo: "Ford Focus",
+    precio: "$12,000",
+    condicion: "Usado",
+    imagen: "img/ford_focus.jpg"
+  },
+  {
+    id: 11,
+    titulo: "Ford EcoSport",
+    precio: "$14,000",
+    condicion: "Usado",
+    imagen: "img/ford_ecosport.jpg"
+  },
+  {
+    id: 12,
+    titulo: "Volkswagen Golf",
+    precio: "$16,000",
+    condicion: "Usado",
+    imagen: "img/vw_golf.jpg"
+  }
 ];
 
-// metodo map para recorrer el array
-contenedorHTML.innerHTML = productos.map(producto => `
 
-    <div class="columna">
-        <div class="tarjeta">
-            <h3>${producto.title}</h3>
-            <img src="${producto.thumbnail}"></img>
-            <p>$ ${producto.price}</p>
-            <p>Stock ${producto.stock}</p>
-            <button>Comprar</button>
-            <button>Agregar al carrito</button>
-        </div>
-    </div>
+const contenedor = document.getElementById("contenedor");
 
-`).join('');
-
+productos.map(producto => {
+  const tarjeta = document.createElement("div");
+  tarjeta.className = "tarjeta";
+  tarjeta.innerHTML = `
+    <img src="${producto.imagen}">
+    <h3>${producto.titulo}</h3>
+    <p>Precio: ${producto.precio}</p>
+    <p>Condición: ${producto.condicion}</p>
+	<Button> Comprar </Button>
+  `;
+  contenedor.appendChild(tarjeta);
+});
